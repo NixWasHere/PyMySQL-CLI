@@ -44,11 +44,11 @@ def execute_command(host: str, port: int, user: str, password: str, cmd: str, db
                               user=user,
                               port=port,
                               password=password,
-                              database=db)
+                              database=db,
+                              autocommit=True)
         cur = con.cursor()
         cur.execute(str(cmd))
         rows = cur.fetchall()
-
         for row in rows:
             print(row)
         con.close()
